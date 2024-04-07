@@ -9,13 +9,26 @@ import SwiftUI
 
 @main
 struct visionOS_PlaygroundApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  @State var dataModel = DataModel()
+  var body: some Scene {
+    WindowGroup {
+      HomeView()
+        .environment(dataModel)
+    }.defaultSize(.init(width: 450, height: 640))
 
-        ImmersiveSpace(id: "ImmersiveSpace") {
-            ImmersiveView()
-        }
+    WindowGroup(id: "portalDemo") {
+      PortalDemo().environment(dataModel)
     }
+    .windowStyle(.volumetric)
+    .defaultSize(.init(width: 0.5, height: 0.5, depth: 0.5), in: .meters)
+
+    // ARKit - HandPalmParticle
+    ImmersiveSpace(id: "HandPalmParticle") {
+      HandPalmParticle()
+    }
+    // ARKit - HandAttachment
+    ImmersiveSpace(id: "HandAttachment") {
+      HandAttachmentView()
+    }
+  }
 }

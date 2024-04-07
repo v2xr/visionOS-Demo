@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,8 +11,17 @@
 		12E2DA552BC125CD002F0462 /* visionOS_PlaygroundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E2DA542BC125CD002F0462 /* visionOS_PlaygroundApp.swift */; };
 		12E2DA572BC125CD002F0462 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E2DA562BC125CD002F0462 /* ContentView.swift */; };
 		12E2DA592BC125CD002F0462 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E2DA582BC125CD002F0462 /* ImmersiveView.swift */; };
-		12E2DA5B2BC125CF002F0462 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12E2DA5A2BC125CF002F0462 /* Assets.xcassets */; };
 		12E2DA5E2BC125CF002F0462 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12E2DA5D2BC125CF002F0462 /* Preview Assets.xcassets */; };
+		12E2DA672BC1282B002F0462 /* RealityUI in Frameworks */ = {isa = PBXBuildFile; productRef = 12E2DA662BC1282B002F0462 /* RealityUI */; };
+		12E2DA6A2BC12846002F0462 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 12E2DA692BC12846002F0462 /* Shimmer */; };
+		12E2DA6D2BC1291E002F0462 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E2DA6C2BC1291E002F0462 /* DataModel.swift */; };
+		12E2DA702BC12C98002F0462 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E2DA6F2BC12C98002F0462 /* HomeView.swift */; };
+		12E2DA722BC12FC1002F0462 /* ARKitDemos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E2DA712BC12FC1002F0462 /* ARKitDemos.swift */; };
+		12E2DA742BC13001002F0462 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E2DA732BC13001002F0462 /* HeaderView.swift */; };
+		12F9D3CD2BC249D600615C3C /* PortalDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F9D3CC2BC249D600615C3C /* PortalDemo.swift */; };
+		12F9D3D22BC2CC8000615C3C /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F9D3D12BC2CC8000615C3C /* AboutView.swift */; };
+		12F9D3D42BC2D21500615C3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12F9D3D32BC2D21500615C3C /* Assets.xcassets */; };
+		12F9D3D62BC2D6E800615C3C /* HandAttachmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F9D3D52BC2D6E800615C3C /* HandAttachmentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,9 +30,17 @@
 		12E2DA542BC125CD002F0462 /* visionOS_PlaygroundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = visionOS_PlaygroundApp.swift; sourceTree = "<group>"; };
 		12E2DA562BC125CD002F0462 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		12E2DA582BC125CD002F0462 /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
-		12E2DA5A2BC125CF002F0462 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12E2DA5D2BC125CF002F0462 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		12E2DA5F2BC125CF002F0462 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12E2DA6B2BC1287A002F0462 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		12E2DA6C2BC1291E002F0462 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		12E2DA6F2BC12C98002F0462 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		12E2DA712BC12FC1002F0462 /* ARKitDemos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKitDemos.swift; sourceTree = "<group>"; };
+		12E2DA732BC13001002F0462 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		12F9D3CC2BC249D600615C3C /* PortalDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalDemo.swift; sourceTree = "<group>"; };
+		12F9D3D12BC2CC8000615C3C /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		12F9D3D32BC2D21500615C3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		12F9D3D52BC2D6E800615C3C /* HandAttachmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandAttachmentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,7 +48,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12E2DA6A2BC12846002F0462 /* Shimmer in Frameworks */,
 				12E2DA532BC125CD002F0462 /* RealityKitContent in Frameworks */,
+				12E2DA672BC1282B002F0462 /* RealityUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +60,7 @@
 		12E2DA442BC125CC002F0462 = {
 			isa = PBXGroup;
 			children = (
+				12E2DA6B2BC1287A002F0462 /* README.md */,
 				12E2DA4F2BC125CD002F0462 /* visionOS Playground */,
 				12E2DA502BC125CD002F0462 /* Packages */,
 				12E2DA4E2BC125CD002F0462 /* Products */,
@@ -58,12 +78,13 @@
 		12E2DA4F2BC125CD002F0462 /* visionOS Playground */ = {
 			isa = PBXGroup;
 			children = (
+				12F9D3D32BC2D21500615C3C /* Assets.xcassets */,
+				12E2DA752BC18E2E002F0462 /* ImmersiveViews */,
+				12E2DA6E2BC12C8A002F0462 /* Views */,
 				12E2DA542BC125CD002F0462 /* visionOS_PlaygroundApp.swift */,
-				12E2DA562BC125CD002F0462 /* ContentView.swift */,
-				12E2DA582BC125CD002F0462 /* ImmersiveView.swift */,
-				12E2DA5A2BC125CF002F0462 /* Assets.xcassets */,
 				12E2DA5F2BC125CF002F0462 /* Info.plist */,
 				12E2DA5C2BC125CF002F0462 /* Preview Content */,
+				12E2DA6C2BC1291E002F0462 /* DataModel.swift */,
 			);
 			path = "visionOS Playground";
 			sourceTree = "<group>";
@@ -84,6 +105,28 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		12E2DA6E2BC12C8A002F0462 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				12E2DA562BC125CD002F0462 /* ContentView.swift */,
+				12E2DA6F2BC12C98002F0462 /* HomeView.swift */,
+				12E2DA712BC12FC1002F0462 /* ARKitDemos.swift */,
+				12E2DA732BC13001002F0462 /* HeaderView.swift */,
+				12F9D3CC2BC249D600615C3C /* PortalDemo.swift */,
+				12F9D3D12BC2CC8000615C3C /* AboutView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		12E2DA752BC18E2E002F0462 /* ImmersiveViews */ = {
+			isa = PBXGroup;
+			children = (
+				12E2DA582BC125CD002F0462 /* ImmersiveView.swift */,
+				12F9D3D52BC2D6E800615C3C /* HandAttachmentView.swift */,
+			);
+			path = ImmersiveViews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -102,6 +145,8 @@
 			name = "visionOS Playground";
 			packageProductDependencies = (
 				12E2DA522BC125CD002F0462 /* RealityKitContent */,
+				12E2DA662BC1282B002F0462 /* RealityUI */,
+				12E2DA692BC12846002F0462 /* Shimmer */,
 			);
 			productName = "visionOS Playground";
 			productReference = 12E2DA4D2BC125CD002F0462 /* visionOS Playground.app */;
@@ -131,6 +176,10 @@
 				Base,
 			);
 			mainGroup = 12E2DA442BC125CC002F0462;
+			packageReferences = (
+				12E2DA652BC1282B002F0462 /* XCRemoteSwiftPackageReference "RealityUI" */,
+				12E2DA682BC12846002F0462 /* XCLocalSwiftPackageReference "../../SwiftUI-Shimmer" */,
+			);
 			productRefGroup = 12E2DA4E2BC125CD002F0462 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -145,8 +194,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12F9D3D42BC2D21500615C3C /* Assets.xcassets in Resources */,
 				12E2DA5E2BC125CF002F0462 /* Preview Assets.xcassets in Resources */,
-				12E2DA5B2BC125CF002F0462 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,8 +207,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				12E2DA572BC125CD002F0462 /* ContentView.swift in Sources */,
+				12E2DA6D2BC1291E002F0462 /* DataModel.swift in Sources */,
+				12F9D3CD2BC249D600615C3C /* PortalDemo.swift in Sources */,
 				12E2DA552BC125CD002F0462 /* visionOS_PlaygroundApp.swift in Sources */,
+				12F9D3D22BC2CC8000615C3C /* AboutView.swift in Sources */,
+				12E2DA702BC12C98002F0462 /* HomeView.swift in Sources */,
+				12E2DA722BC12FC1002F0462 /* ARKitDemos.swift in Sources */,
 				12E2DA592BC125CD002F0462 /* ImmersiveView.swift in Sources */,
+				12F9D3D62BC2D6E800615C3C /* HandAttachmentView.swift in Sources */,
+				12E2DA742BC13001002F0462 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +353,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "XRI Experiences";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -323,6 +380,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "XRI Experiences";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -360,10 +418,37 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		12E2DA682BC12846002F0462 /* XCLocalSwiftPackageReference "../../SwiftUI-Shimmer" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../SwiftUI-Shimmer";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		12E2DA652BC1282B002F0462 /* XCRemoteSwiftPackageReference "RealityUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maxxfrazer/RealityUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		12E2DA522BC125CD002F0462 /* RealityKitContent */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RealityKitContent;
+		};
+		12E2DA662BC1282B002F0462 /* RealityUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12E2DA652BC1282B002F0462 /* XCRemoteSwiftPackageReference "RealityUI" */;
+			productName = RealityUI;
+		};
+		12E2DA692BC12846002F0462 /* Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Shimmer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
