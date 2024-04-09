@@ -22,6 +22,7 @@
 		12F9D3D22BC2CC8000615C3C /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F9D3D12BC2CC8000615C3C /* AboutView.swift */; };
 		12F9D3D42BC2D21500615C3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12F9D3D32BC2D21500615C3C /* Assets.xcassets */; };
 		12F9D3D62BC2D6E800615C3C /* HandAttachmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F9D3D52BC2D6E800615C3C /* HandAttachmentView.swift */; };
+		12F9D3DE2BC54ACE00615C3C /* PlaneDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F9D3DD2BC54ACE00615C3C /* PlaneDetectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		12F9D3D12BC2CC8000615C3C /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		12F9D3D32BC2D21500615C3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12F9D3D52BC2D6E800615C3C /* HandAttachmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandAttachmentView.swift; sourceTree = "<group>"; };
+		12F9D3DD2BC54ACE00615C3C /* PlaneDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneDetectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			children = (
 				12E2DA582BC125CD002F0462 /* ImmersiveView.swift */,
 				12F9D3D52BC2D6E800615C3C /* HandAttachmentView.swift */,
+				12F9D3DD2BC54ACE00615C3C /* PlaneDetectionView.swift */,
 			);
 			path = ImmersiveViews;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12F9D3DE2BC54ACE00615C3C /* PlaneDetectionView.swift in Sources */,
 				12E2DA572BC125CD002F0462 /* ContentView.swift in Sources */,
 				12E2DA6D2BC1291E002F0462 /* DataModel.swift in Sources */,
 				12F9D3CD2BC249D600615C3C /* PortalDemo.swift in Sources */,
@@ -347,19 +351,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"visionOS Playground/Preview Content\"";
 				DEVELOPMENT_TEAM = F7QY5N4BYH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "XRI Experiences";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "im.rainy.visionOS-Playground";
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "ergo.lab.xri-experiences";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -374,19 +379,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"visionOS Playground/Preview Content\"";
 				DEVELOPMENT_TEAM = F7QY5N4BYH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "XRI Experiences";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "im.rainy.visionOS-Playground";
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "ergo.lab.xri-experiences";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;

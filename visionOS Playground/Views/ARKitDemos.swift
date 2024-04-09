@@ -13,6 +13,7 @@ struct ARKitDemos: View {
 
   @State private var showHandPalmParticle = false
   @State private var showHandAttachment = false
+  @State private var showPlaneDetection = false
 
   @Environment(DataModel.self) var model
   @Environment(\.openImmersiveSpace.self) var openImmersiveSpace

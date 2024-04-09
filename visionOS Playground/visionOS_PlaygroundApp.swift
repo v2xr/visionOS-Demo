@@ -29,6 +29,11 @@ struct visionOS_PlaygroundApp: App {
     // ARKit - HandAttachment
     ImmersiveSpace(id: "HandAttachment") {
       HandAttachmentView()
+        .upperLimbVisibility(.hidden)
+    }
+    // ARKit - PlaneDetection
+    ImmersiveSpace(id: "PlaneDetection") {
+      PlaneDetectionView()
     }
   }
 }

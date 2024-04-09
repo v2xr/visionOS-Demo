@@ -30,7 +30,7 @@ struct AboutView: View {
     }
 
     UIApplication.shared.open(url, options: [:], completionHandler: nil)
-    isMailAppOpen = true
+    isMailAppOpen = false
   }
 }
 
