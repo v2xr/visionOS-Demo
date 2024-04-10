@@ -39,7 +39,6 @@ struct HomeView: View {
              Label("Config", systemImage: "gear")
            }
          */
-
         AboutView()
           .tabItem {
             Label("About", systemImage: "info.circle")

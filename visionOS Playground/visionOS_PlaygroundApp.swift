@@ -34,6 +34,7 @@ struct visionOS_PlaygroundApp: App {
     // ARKit - PlaneDetection
     ImmersiveSpace(id: "PlaneDetection") {
       PlaneDetectionView()
+        .environment(dataModel)
     }
   }
 }

@@ -23,6 +23,7 @@ struct ARKitDemos: View {
       if !immersiveSpaceIsShown {
         showHandPalmParticle = false
         showHandAttachment = false
+        showPlaneDetection = false
       }
     }
   }
@@ -41,6 +42,12 @@ struct ARKitDemos: View {
           Text("Hand Attachment UI")
         }
       }.toggleStyle(.switch)
+      Toggle(isOn: $showPlaneDetection) {
+        HStack {
+          Image(systemName: "table.furniture")
+          Text("Scene Reconstruction")
+        }
+      }.toggleStyle(.switch)
     }
     .onChange(of: showHandPalmParticle) { _, newValue in
       if showHandPalmParticle {
@@ -53,6 +60,14 @@ struct ARKitDemos: View {
     .onChange(of: showHandAttachment) { _, newValue in
       if showHandAttachment {
         immersiveSpaceID = "HandAttachment"
+      }
+      Task {
+        await onChangeTask(toggle: newValue)
+      }
+    }
+    .onChange(of: showPlaneDetection) { _, newValue in
+      if showPlaneDetection {
+        immersiveSpaceID = "PlaneDetection"
       }
       Task {
         await onChangeTask(toggle: newValue)
