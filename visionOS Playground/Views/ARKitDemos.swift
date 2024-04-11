@@ -14,6 +14,8 @@ struct ARKitDemos: View {
   @State private var showHandPalmParticle = false
   @State private var showHandAttachment = false
   @State private var showPlaneDetection = false
+  @State private var showTableSketchpad = false
+  @State private var showTableKeyboards = false
 
   @Environment(DataModel.self) var model
   @Environment(\.openImmersiveSpace.self) var openImmersiveSpace
@@ -24,6 +26,8 @@ struct ARKitDemos: View {
         showHandPalmParticle = false
         showHandAttachment = false
         showPlaneDetection = false
+        showTableSketchpad = false
+        showTableKeyboards = false
       }
     }
   }
@@ -48,6 +52,18 @@ struct ARKitDemos: View {
           Text("Scene Reconstruction")
         }
       }.toggleStyle(.switch)
+      Toggle(isOn: $showTableSketchpad) {
+        HStack {
+          Image(systemName: "square.and.pencil")
+          Text("Table Sketchpad")
+        }
+      }.toggleStyle(.switch)
+      Toggle(isOn: $showTableKeyboards) {
+        HStack {
+          Image(systemName: "keyboard")
+          Text("Table Keyboards")
+        }
+      }.toggleStyle(.switch)
     }
     .onChange(of: showHandPalmParticle) { _, newValue in
       if showHandPalmParticle {
@@ -68,6 +84,22 @@ struct ARKitDemos: View {
     .onChange(of: showPlaneDetection) { _, newValue in
       if showPlaneDetection {
         immersiveSpaceID = "PlaneDetection"
+      }
+      Task {
+        await onChangeTask(toggle: newValue)
+      }
+    }
+    .onChange(of: showTableSketchpad) { _, newValue in
+      if showTableSketchpad {
+        immersiveSpaceID = "TableSketchpad"
+      }
+      Task {
+        await onChangeTask(toggle: newValue)
+      }
+    }
+    .onChange(of: showTableKeyboards) { _, newValue in
+      if showTableKeyboards {
+        immersiveSpaceID = "TableKeyboards"
       }
       Task {
         await onChangeTask(toggle: newValue)

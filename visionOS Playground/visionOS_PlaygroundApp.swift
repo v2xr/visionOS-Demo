@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct visionOS_PlaygroundApp: App {
   @State var dataModel = DataModel()
+  @State var tableKeyboardModel = TableKeyboardModel()
+  
   var body: some Scene {
     WindowGroup {
       HomeView()
@@ -20,7 +22,7 @@ struct visionOS_PlaygroundApp: App {
       PortalDemo().environment(dataModel)
     }
     .windowStyle(.volumetric)
-    .defaultSize(.init(width: 0.5, height: 0.5, depth: 0.5), in: .meters)
+    .defaultSize(.init(width: 0.15, height: 0.15, depth: 0.5), in: .meters)
 
     // ARKit - HandPalmParticle
     ImmersiveSpace(id: "HandPalmParticle") {
@@ -35,6 +37,16 @@ struct visionOS_PlaygroundApp: App {
     ImmersiveSpace(id: "PlaneDetection") {
       PlaneDetectionView()
         .environment(dataModel)
+    }
+    // ARKit - TableSketchpad
+    ImmersiveSpace(id: "TableSketchpad") {
+      TableSketchpadView()
+    }
+
+    // ARKit - TableKeyboards
+    ImmersiveSpace(id: "TableKeyboards") {
+      TableKeyboards()
+        .environment(tableKeyboardModel)
     }
   }
 }

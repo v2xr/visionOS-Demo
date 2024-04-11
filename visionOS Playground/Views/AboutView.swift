@@ -13,7 +13,7 @@ struct AboutView: View {
 
   var body: some View {
     Button(action: openMailApp) {
-      Label("\(recipient)", systemImage: "envelope")
+      Label("Mail to me", systemImage: "envelope")
 //      Text("Email: \(recipient)")
     }
     .sheet(isPresented: $isMailAppOpen) {

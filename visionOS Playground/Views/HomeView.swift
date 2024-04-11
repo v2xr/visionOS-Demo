@@ -26,20 +26,14 @@ struct HomeView: View {
             Label("ARKit", systemImage: "arkit")
           }
         VStack {
-          Text("WWDC 2024")
+          Label("WWDC 2024 Sample Projects", systemImage: "apple.terminal.on.rectangle")
           Text("Coming soon... June 10-14")
             .font(.footnote)
         }
         .tabItem {
           Label("WWDC24", systemImage: "w.circle")
         }
-        /*
-         Text("Config")
-           .tabItem {
-             Label("Config", systemImage: "gear")
-           }
-         */
-        AboutView()
+       AboutView()
           .tabItem {
             Label("About", systemImage: "info.circle")
           }
