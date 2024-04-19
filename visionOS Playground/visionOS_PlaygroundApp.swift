@@ -11,7 +11,9 @@ import SwiftUI
 struct visionOS_PlaygroundApp: App {
   @State var dataModel = DataModel()
   @State var tableKeyboardModel = TableKeyboardModel()
-  
+
+  let defaultWinSize: Size3D = .init(vector: [0.2, 0.2, 0.2])
+
   var body: some Scene {
     WindowGroup {
       HomeView()
@@ -23,6 +25,24 @@ struct visionOS_PlaygroundApp: App {
     }
     .windowStyle(.volumetric)
     .defaultSize(.init(width: 0.15, height: 0.15, depth: 0.5), in: .meters)
+
+    WindowGroup(id: "tempWindow") {
+      TempView().environment(tableKeyboardModel)
+    }
+    .windowStyle(.automatic)
+
+    WindowGroup(id: "multiverse") {
+      MultiverseView(size: defaultWinSize)
+        .environment(dataModel)
+    }
+    WindowGroup(id: "universeView", for: UniverseData.self) { $value in
+      UniverseVolView(
+        universeData: value!
+      )
+      .environment(dataModel)
+    }
+    .windowStyle(.volumetric)
+    .defaultSize(defaultWinSize, in: .meters)
 
     // ARKit - HandPalmParticle
     ImmersiveSpace(id: "HandPalmParticle") {

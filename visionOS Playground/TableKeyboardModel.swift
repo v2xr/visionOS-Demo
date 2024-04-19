@@ -11,9 +11,9 @@ import RealityKit
 
 @Observable
 class TableKeyboardModel {
-//  var gameSounds: [String: AudioResource] = [:]
+  var gameSounds: [String: AudioResource] = [:]
   var rootEntity = Entity()
-  var keyboard: ModelEntity?
+  var keyboard: Keyboard?
   var planeDetection = PlaneDetectionProvider()
   var handTracking = HandTrackingProvider()
   var arkitSession = ARKitSession()
@@ -30,9 +30,19 @@ class TableKeyboardModel {
   ]
   private var allFingerTipEntities: [HandAnchor.Chirality: [HandSkeleton.JointName: Entity]] = [:]
 
+  private let keyStrokeCollisionGroup: CollisionFilter = .init(group: .init(rawValue: 0), mask: .default)
+
   init() {
     Task { @MainActor in
       planeAnchorHandler = .init(rootEntity: rootEntity)
+      do {
+        let carriage = try await AudioFileResource(named: "carriage.mp3")
+        gameSounds["carriage"] = carriage
+        let keystroke = try await AudioFileResource(named: "keystroke.mp3")
+        gameSounds["keystroke"] = keystroke
+      } catch {
+        fatalError("Error loading cloud sound resources.")
+      }
     }
   }
 
@@ -51,7 +61,7 @@ class TableKeyboardModel {
   func setUpContent() -> Entity {
     rootEntity.children.removeAll()
 
-    rootEntity.addChild(makeKeyboard())
+    rootEntity.addChild(makeMyKeyboard())
     setupFingerTipEntities()
     return rootEntity
   }
@@ -88,50 +98,57 @@ class TableKeyboardModel {
     allFingerTipEntities[.left] = [:]
     allFingerTipEntities[.right] = [:]
     for finger in allFingerTipJointNames {
-      allFingerTipEntities[.left]![finger] = .createFingertip(hand: .left, joint: finger)
-      allFingerTipEntities[.right]![finger] = .createFingertip(hand: .right, joint: finger)
+      allFingerTipEntities[.left]![finger] = .createFingertip(hand: .left, joint: finger, keyStrokeCollisionGroup: keyStrokeCollisionGroup)
+      allFingerTipEntities[.right]![finger] = .createFingertip(hand: .right, joint: finger, keyStrokeCollisionGroup: keyStrokeCollisionGroup)
 
       rootEntity.addChild(allFingerTipEntities[.left]![finger]!)
       rootEntity.addChild(allFingerTipEntities[.right]![finger]!)
     }
   }
 
-  func makeKeyboard() -> ModelEntity {
-    keyboard = ModelEntity(
-      mesh: .generatePlane(width: 0.3, depth: 0.1, cornerRadius: 0.01),
-      materials: [SimpleMaterial(color: .white, isMetallic: false)],
-      collisionShapes: [.generateBox(width: 0.3, height: 0.001, depth: 0.1)],
-      mass: 0.0
-    )
-    keyboard?.name = "Keyboard"
-    var material = PhysicallyBasedMaterial() // SimpleMaterial(color: .white, isMetallic: false)
-    if let baseResource = try? TextureResource.load(named: "QWERT.png") {
-      // Create a material parameter and assign it.
-      let baseColor = MaterialParameters.Texture(baseResource)
-      material.baseColor = PhysicallyBasedMaterial.BaseColor(texture: baseColor)
-      keyboard?.components[ModelComponent.self]?.materials = [material]
-    } else {
-      print("Failed to load texture")
-    }
-
-    keyboard?.components.set(PhysicsBodyComponent(mode: .static))
-    keyboard?.components.set(InputTargetComponent(allowedInputTypes: .indirect))
-    keyboard?.components.set(GestureComponent(canDrag: false, canScale: false, canRotate: true))
+  func makeMyKeyboard() -> Entity {
+    keyboard = Keyboard()
     return keyboard!
   }
 
+  /*
+   func makeKeyboard() -> Entity {
+     keyboard = ModelEntity(
+       mesh: .generatePlane(width: 0.3, depth: 0.1, cornerRadius: 0.01),
+       materials: [SimpleMaterial(color: .white, isMetallic: false)],
+       collisionShapes: [.generateBox(width: 0.3, height: 0.001, depth: 0.1)],
+       mass: 0.0
+     )
+     keyboard?.name = "Keyboard"
+     var material = PhysicallyBasedMaterial() // SimpleMaterial(color: .white, isMetallic: false)
+     if let baseResource = try? TextureResource.load(named: "QWERT.png") {
+       // Create a material parameter and assign it.
+       let baseColor = MaterialParameters.Texture(baseResource)
+       material.baseColor = PhysicallyBasedMaterial.BaseColor(texture: baseColor)
+       keyboard?.components[ModelComponent.self]?.materials = [material]
+     } else {
+       print("Failed to load texture")
+     }
+
+     keyboard?.components.set(PhysicsBodyComponent(mode: .static))
+     keyboard?.components.set(InputTargetComponent(allowedInputTypes: .indirect))
+     keyboard?.components.set(GestureComponent(canDrag: false, canScale: false, canRotate: true))
+     return keyboard! as Entity
+   }
+   */
   func updateKeyboardLocation(location: SIMD3<Float>) {
-    let keyboardLocation = location + [0, 0.005, 0]
+    let keyboardLocation = location + [0, 0.01, 0]
     keyboard?.transform.translation = keyboardLocation
   }
 }
 
 extension Entity {
   /// Creates an invisible sphere that can interact with dropped cubes in the scene.
-  class func createFingertip(hand: HandAnchor.Chirality, joint: HandSkeleton.JointName) -> Entity {
+  class func createFingertip(hand: HandAnchor.Chirality, joint: HandSkeleton.JointName, keyStrokeCollisionGroup _: CollisionFilter) -> Entity {
     let entity = Entity()
-    entity.components[ModelComponent.self] = .init(mesh: .generateSphere(radius: 0.005), materials: [UnlitMaterial(color: .green)])
-    entity.components[CollisionComponent.self] = .init(shapes: [.generateSphere(radius: 0.015)])
+    entity.components[ModelComponent.self] = .init(mesh: .generateSphere(radius: 0.005), materials: [UnlitMaterial(color: .white)])
+    entity.components[CollisionComponent.self] = .init(shapes: [.generateSphere(radius: 0.0065)]) // , filter: keyStrokeCollisionGroup)
+    entity.components.set(KeyFingerComponent())
 
     /*
      entity.components.set(

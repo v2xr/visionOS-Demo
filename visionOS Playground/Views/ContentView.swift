@@ -26,18 +26,30 @@ struct ContentView: View {
       }
 
       Button {
-        showVolumetricWindowAlert.toggle()
+//        showVolumetricWindowAlert.toggle()
+        openWindow(id: "tempWindow")
       } label: {
         HStack {
           Image(systemName: "cube.transparent")
           Text("Volumetric Window")
         }
       }
+      
+      Button {
+        openWindow(id: "multiverse")
+      } label: {
+        HStack {
+          Image(systemName: "point.3.filled.connected.trianglepath.dotted")
+          Text("Multiverse")
+        }
+      }
+      /*
       .alert(isPresented: $showVolumetricWindowAlert, content: {
         Alert(title: Text("🚧"),
               message: Text("Comming soon..."),
               dismissButton: .default(Text("OK")))
       })
+       */
     }
   }
 }
