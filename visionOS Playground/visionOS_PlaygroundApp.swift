@@ -12,7 +12,7 @@ struct visionOS_PlaygroundApp: App {
   @State var dataModel = DataModel()
   @State var tableKeyboardModel = TableKeyboardModel()
 
-  let defaultWinSize: Size3D = .init(vector: [0.2, 0.2, 0.2])
+  let defaultWinSize: Size3D = .init(vector: [0.4, 0.2, 0.2])
 
   var body: some Scene {
     WindowGroup {

@@ -23,7 +23,7 @@ struct UniverseVolView: View {
 
       _ = content.subscribe(to: CollisionEvents.Began.self) { event in
         if event.entityA.name == "Ball" || event.entityB.name == "Ball" {
-          model.handleCollision(event: event, universe: universeData)
+//          model.handleCollision(event: event, universe: universeData)
         }
       }
 
@@ -51,17 +51,31 @@ struct UniverseVolView: View {
     .gesture(SpatialTapGesture().targetedToAnyEntity().onEnded { value in
       print("Tapped: ", value.entity.name, " of Universe #\(universeData.order)")
 
-      if value.entity.name == "Ball" {
+      if value.entity.name == "Ball", false {
         guard let pb = value.entity as? HasPhysicsBody else {
           return
         }
         pb.components[PhysicsBodyComponent.self]?.mode = .dynamic
         pb.addForce(.randomForce(), relativeTo: nil)
-        pb.addTorque([0,0,0], relativeTo: pb)
+        pb.addTorque([0, 0, 0], relativeTo: pb)
 //        pb.applyImpulse(.randomForce(), at: [0,0,0], relativeTo: nil)
       }
 
     })
+    .gesture(
+      DragGesture()
+        .targetedToAnyEntity()
+        .onChanged { value in
+          if let dragComp = value.entity.components[DragToShootComponent.self] {
+            dragComp.handleDragChange(value: value)
+          } else {
+            print("No componet")
+          }
+        }.onEnded { value in
+          if let dragComp = value.entity.components[DragToShootComponent.self] {
+            dragComp.handleDragEnd(value: value)
+          }
+        })
   }
 }
 
